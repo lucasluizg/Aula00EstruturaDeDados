@@ -1,5 +1,45 @@
 # Aula00EstruturaDeDados
 
+## Atividade 2
+````mermaid
+
+classDiagram
+
+class Imovel{
+ - descricao: String
+ - endereço:  String
+ - preco: double
+}
+
+class Inquilino{
+    - nome: String
+    - CPF: int
+    - telefone: int
+}
+
+class Contrato{
+    - codigo: Random
+    - dataInicio: localDate
+    - dataFim: localDate
+    - valorFinal: double
+    - inq: Inquilino
+    - imo: imovel
+    + contrato(c: Random, dI: localDate, dF: localdate, vF: double, inq: Inquilino, imo: Imovel) void
+    + verDetalhes(contrato: Contrato) void
+ }
+ 
+ class histContratos{
+     - inq: Inquilino
+     + verHistorico(inq: Inquilino)
+ }
+ 
+ Imovel "1..*"-->"1" Contrato
+ Contrato"1"<-- "1"Inquilino
+ Contrato"1..*"<--"1"histContratos
+ 
+ 
+````
+
 ## Atividade 3
 
 Defina TADs para os tipos de dados estruturados para as entidades listadas a seguir especificando detalhadamente a interface completa. A interface deve incluir todas os atributos e operações necessárias para a correta manipulação do tipo, dentre elas os métodos de inicialização, modificação, e consulta
