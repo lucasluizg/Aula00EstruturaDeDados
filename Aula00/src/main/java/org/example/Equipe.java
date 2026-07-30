@@ -15,4 +15,26 @@ public class Equipe {
         equipe.remove(funcionario);
     }
 
+    public List<Funcionario> getFuncionarios() {
+        return equipe;
+    }
+
+    public void setEquipe(List<Funcionario> equipe) {
+        this.equipe = equipe;
+    }
+
+    public void bonusSalarioFuncionarios() {
+        for (Funcionario funcionario : equipe) {
+            funcionario.setSalario(funcionario.getSalario() * 1.1);
+        }
+    }
+
+    public double calcularTotalSalario() {
+        double total = 0;
+        for (Funcionario funcionario : equipe) {
+            total += funcionario.getSalario();
+        }
+        return total;
+    }
+
 }

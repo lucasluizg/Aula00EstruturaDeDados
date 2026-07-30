@@ -4,10 +4,15 @@ public class Gerente {
 
     private String nome;
     private double salario;
+    private Equipe equipe;
 
-    public Gerente(String nome, double salario) {
+    public Gerente(String nome, double salario, Equipe equipe) {
         this.nome = nome;
-        this.salario = salario;
+        this.equipe = equipe;
+
+        int quantidade = equipe.getFuncionarios().size();
+        double bonus = salario * ((double) quantidade / 100);
+        this.salario = salario + bonus;
     }
 
     public String getNome() {
@@ -24,5 +29,17 @@ public class Gerente {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public Equipe getEquipe() {
+        return equipe;
+    }
+
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
+    }
+
+    public void bonusSalarioGerente () {
+        this.salario = this.salario * 1.1;
     }
 }
